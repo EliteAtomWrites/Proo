@@ -1,0 +1,15 @@
+function payWithPaystack(amount){
+    let handler = PaystackPop.setup({
+        key: 'pk_live_4c1b8a520c665191d48666564fd19e11feadb30e',
+        email: 'mutiuhammed60@gmail.com',
+        amount: amount * 100,
+        currency: 'NGN',
+        callback: function(response){
+            alert('Payment successful. Reference: ' + response.reference);
+        },
+        onClose: function(){
+            alert('Transaction cancelled.');
+        }
+    });
+    handler.openIframe();
+}
